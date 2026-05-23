@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses | ID Development Academy</title>
+  <meta name="description" content="Erasmus+ training courses for educators and school staff. AI in Education, Digital Innovation, Outdoor Learning and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Courses | ID Development Academy" />
+  <meta property="og:description" content="Erasmus+ training courses for educators and school staff. AI in Education, Digital Innovation, Outdoor Learning and more." />
+  <meta property="og:url" content="https://id-development.netlify.app/courses.html" />
+  <meta property="og:image" content="https://id-development.netlify.app/assets/images/courses-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+  <style>
+    /* ── Hero image ── */
+    .courses-hero-img {
+      width: 100%; max-height: 360px; object-fit: cover;
+      border-radius: 0 0 var(--radius) var(--radius);
+      display: block; margin-bottom: 0;
+      filter: brightness(0.75);
+    }
+    .hero-img-wrap { position: relative; overflow: hidden; border-radius: 0 0 var(--radius) var(--radius); }
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,12,24,0.85) 0%, rgba(6,12,24,0.2) 60%, transparent 100%);
+    }
+    .hero-img-text {
+      position: absolute; bottom: 36px; left: 0; right: 0;
+      text-align: center; padding: 0 20px;
+    }
+    .hero-img-text h1 { font-size: clamp(1.8rem,4vw,3rem); margin:0 0 8px; }
+    .hero-img-text p  { color: var(--muted); font-size: 1.05rem; margin: 0; }
+
+    /* ── Course cards ── */
+    .course-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .course-card {
+      background: linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      position: relative;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 56px rgba(0,0,0,.35);
+      border-color: rgba(255,255,255,.22);
+    }
+    .course-card:hover .course-card-img {
+      transform: scale(1.04);
+    }
+    .course-card:hover .course-card-arrow {
+      opacity: 1; transform: translateX(0);
+    }
+    .course-card-img-wrap {
+      height: 210px; overflow: hidden; position: relative;
+    }
+    .course-card-img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .course-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,12,26,.7) 0%, transparent 55%);
+    }
+    .course-card-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(6,12,26,.75);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: 0.74rem; font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+    .course-card-days {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(248,180,0,.18);
+      border: 1px solid rgba(248,180,0,.35);
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: 0.74rem; font-weight: 700;
+      color: var(--secondary);
+    }
+    .course-card-body {
+      padding: 22px 22px 24px;
+    }
+    .course-card-body h3 {
+      font-size: 1.15rem; margin: 0 0 10px;
+      color: var(--text);
+    }
+    .course-card-body p {
+      color: var(--muted); font-size: 0.9rem;
+      line-height: 1.65; margin: 0 0 16px;
+    }
+    .course-card-tags {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px;
+    }
+    .course-tag {
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.75rem; font-weight: 600;
+      background: rgba(45,140,255,.13);
+      color: #93c5fd;
+      border: 1px solid rgba(45,140,255,.2);
+    }
+    .course-card-cta {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 16px;
+      margin-top: 4px;
+    }
+    .course-card-cta span {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--primary);
+    }
+    .course-card-arrow {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(45,140,255,.18);
+      border: 1px solid rgba(45,140,255,.3);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0.5;
+      transform: translateX(-4px);
+      transition: opacity .2s, transform .2s;
+    }
+    .course-card-arrow svg { width: 16px; height: 16px; }
+
+    /* ── Custom course card special style ── */
+    .course-card-custom {
+      border-color: rgba(248,180,0,.25);
+      background: linear-gradient(160deg,rgba(248,180,0,.07),rgba(255,255,255,.05));
+    }
+    .course-card-custom:hover {
+      border-color: rgba(248,180,0,.45);
+    }
+
+    /* ── Bottom CTA ── */
+    .courses-cta {
+      margin-top: 64px;
+      background: linear-gradient(135deg,rgba(45,140,255,.12),rgba(109,227,194,.08));
+      border: 1px solid rgba(45,140,255,.2);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .courses-cta h2 { margin: 0 0 12px; font-size: 1.7rem; }
+    .courses-cta p { color: var(--muted); margin: 0 0 28px; max-width: 540px; margin-left:auto; margin-right:auto; line-height:1.7; }
+
+    @media(max-width:640px) {
+      .course-cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo.png" alt="ID Development Academy" class="brand-logo" />
+        <span class="brand-text">ID Development Academy</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="courses.html">Courses</a>
+        <a href="vet-mobility.html">VET Mobility</a>
+        <a href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero with image -->
+    <div class="hero-img-wrap">
+      <img src="assets/images/courses-hero.jpg" alt="Erasmus+ training courses at ID Development Academy" class="courses-hero-img" />
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-text reveal">
+        <span class="eyebrow">Our courses</span>
+        <h1>International learning topics for Erasmus+ participants</h1>
+        <p>Designed for schools, educators, organisations and international groups.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Choose a topic</span>
+          <h2>Explore our training programmes</h2>
+          <p style="color:var(--muted);margin-top:8px">Click on any course to see the full description, programme and customisation options.</p>
+        </div>
+
+        <div class="course-cards-grid">
+
+          <!-- AI Tools in Education -->
+          <a class="course-card reveal" href="course-ai-education.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-ai-education.jpg" alt="AI Tools in Education course" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge">Digital</span>
+              <span class="course-card-days">5 or 7 days</span>
+            </div>
+            <div class="course-card-body">
+              <h3>AI Tools in Education</h3>
+              <p>Practical exploration of AI-supported teaching, lesson planning, creativity and responsible use in the classroom.</p>
+              <div class="course-card-tags">
+                <span class="course-tag">AI literacy</span>
+                <span class="course-tag">Prompting</span>
+                <span class="course-tag">Ethics</span>
+              </div>
+              <div class="course-card-cta">
+                <span>View full course →</span>
+                <div class="course-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#2d8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Digital Management -->
+          <a class="course-card reveal delay-1" href="course-digital-management.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-digital-management.jpg" alt="Digital Management course" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge">Innovation</span>
+              <span class="course-card-days">5 or 7 days</span>
+            </div>
+            <div class="course-card-body">
+              <h3>Digital Management</h3>
+              <p>Engaging digital tools, online collaboration workflows and innovative teaching approaches for school leaders and educators.</p>
+              <div class="course-card-tags">
+                <span class="course-tag">Collaboration</span>
+                <span class="course-tag">Workflows</span>
+                <span class="course-tag">Leadership</span>
+              </div>
+              <div class="course-card-cta">
+                <span>View full course →</span>
+                <div class="course-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#2d8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Flipped Classroom -->
+          <a class="course-card reveal delay-2" href="course-flipped-classroom.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-flipped-classroom.jpg" alt="Flipped Classroom course" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge">Pedagogy</span>
+              <span class="course-card-days">5 or 7 days</span>
+            </div>
+            <div class="course-card-body">
+              <h3>Flipped Classroom</h3>
+              <p>Designing pre-class learning and active in-class sessions that shift the focus from passive reception to collaborative practice.</p>
+              <div class="course-card-tags">
+                <span class="course-tag">Active learning</span>
+                <span class="course-tag">Lesson design</span>
+                <span class="course-tag">Engagement</span>
+              </div>
+              <div class="course-card-cta">
+                <span>View full course →</span>
+                <div class="course-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#2d8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Interactive Games -->
+          <a class="course-card reveal" href="course-interactive-games.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-interactive-games.jpg" alt="Interactive Games in the Classroom course" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge">Engagement</span>
+              <span class="course-card-days">5 or 7 days</span>
+            </div>
+            <div class="course-card-body">
+              <h3>Interactive Games in the Classroom</h3>
+              <p>Game-based learning methods that promote participation, motivation and meaningful engagement across subject areas.</p>
+              <div class="course-card-tags">
+                <span class="course-tag">Gamification</span>
+                <span class="course-tag">Motivation</span>
+                <span class="course-tag">Fun learning</span>
+              </div>
+              <div class="course-card-cta">
+                <span>View full course →</span>
+                <div class="course-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#2d8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Outdoor Learning -->
+          <a class="course-card reveal delay-1" href="course-outdoor-learning.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-outdoor-learning.jpg" alt="Outdoor Learning course" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge">Outdoor</span>
+              <span class="course-card-days">5 or 7 days</span>
+            </div>
+            <div class="course-card-body">
+              <h3>Outdoor &amp; Green Learning</h3>
+              <p>Meaningful educational activities beyond the classroom — nature, sustainability, urban exploration and environmental awareness.</p>
+              <div class="course-card-tags">
+                <span class="course-tag">Sustainability</span>
+                <span class="course-tag">Nature</span>
+                <span class="course-tag">Well-being</span>
+              </div>
+              <div class="course-card-cta">
+                <span>View full course →</span>
+                <div class="course-card-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#2d8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Custom Courses -->
+          <a class="course-card course-card-custom reveal delay-2" href="course-custom-bulgaria.html">
+            <div class="course-card-img-wrap">
+              <img src="assets/images/course-custom-bulgaria.jpg" alt="Custom Erasmus+ Courses" class="course-card-img" />
+              <div class="course-card-img-overlay"></div>
+              <span class="course-card-badge" style="color:var(--secondary)">Custom</span>
+              <span class="course-card-days">Flexible</span>
+            </div>
+            <div class="course-card-body">
+              <h3>Custom Erasmus+ Courses</h3>
+              <p>Tailor-made programmes designed around your organisation's profile, participant group, project goals and learning priorities.</p>
+              <div class="course-card-tags">
+                <span class="course-tag" style="background:rgba(248,180,0,.13);color:#fbbf24;border-color:rgba(248,180,0,.2)">Tailor-made</span>
+                <span class="course-tag" style="background:rgba(248,180,0,.13);color:#fbbf24;border-color:rgba(248,180,0,.2)">Flexible format</span>
+                <span class="course-tag" style="background:rgba(248,180,0,.13);color:#fbbf24;border-color:rgba(248,180,0,.2)">Your goals</span>
+              </div>
+              <div class="course-card-cta">
+                <span style="color:var(--secondary)">View full course →</span>
+                <div class="course-card-arrow" style="background:rgba(248,180,0,.18);border-color:rgba(248,180,0,.3)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#f8b400" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="courses-cta reveal">
+          <span class="eyebrow">All programmes are adaptable</span>
+          <h2>Not sure which course fits your group?</h2>
+          <p>Every programme can be customised to your organisation's needs, participant profile and project goals. Get in touch and we will help you find the right fit.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-primary" href="contact.html">Request Information</a>
+            <a class="btn btn-secondary" href="course-custom-bulgaria.html">Custom Courses</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/images/logo.png" alt="ID Development Academy" class="footer-logo-img" />
+        <h3>ID Development Academy</h3>
+        <p>International training, mobility and Erasmus+ learning opportunities.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="vet-mobility.html">VET Mobility</a>
+        <a href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:id.development@yahoo.com">id.development@yahoo.com</a>
+        <a href="tel:+359894416627">+359 894 416 627</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float button -->
+  <a href="https://wa.me/359894416627" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+     style="position:fixed;bottom:24px;right:24px;z-index:8888;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.22);transition:transform .2s"
+     onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.675 4.8 1.852 6.793L2 30l7.42-1.82A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.46 11.46 0 01-5.84-1.6l-.42-.25-4.4 1.08 1.12-4.28-.27-.44A11.5 11.5 0 1116 27.5zm6.3-8.6c-.35-.17-2.06-1.01-2.38-1.13-.32-.11-.55-.17-.78.17-.23.34-.89 1.13-1.09 1.36-.2.23-.4.26-.74.09-.35-.18-1.46-.54-2.78-1.72-1.03-.92-1.72-2.05-1.92-2.4-.2-.34-.02-.53.15-.7.15-.15.35-.4.52-.6.17-.2.23-.34.34-.57.12-.23.06-.43-.02-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.59-.78-.6h-.67c-.23 0-.6.09-.91.43-.32.34-1.2 1.17-1.2 2.86s1.23 3.31 1.4 3.54c.17.23 2.42 3.69 5.87 5.17.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.13.66-.1 2.06-.84 2.35-1.65.29-.81.29-1.51.2-1.65-.08-.15-.3-.23-.65-.4z"/>
+    </svg>
+  </a>
+
+  <!-- ===== COOKIE BANNER ===== -->
+  <style>
+    #cb{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#06111f;border-top:1px solid rgba(255,255,255,0.10);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;font-family:"Inter",sans-serif;font-size:0.84rem;line-height:1.55;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+    #cb.cb-show{transform:translateY(0)}
+    #cb p{margin:0;color:#b8c3d9;flex:1;min-width:200px}
+    #cb a{color:#6de3c2;text-decoration:underline}
+    #cb .cb-btns{display:flex;gap:.6rem;flex-shrink:0;flex-wrap:wrap}
+    #cb button{cursor:pointer;border-radius:999px;padding:.45rem 1.15rem;font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;transition:opacity .2s;border:1.5px solid rgba(109,227,194,.55);background:transparent;color:#e2e8f0}
+    #cb button:hover{opacity:.8}
+    #cb-accept{background:linear-gradient(135deg,#2d8cff,#56a7ff);border-color:#2d8cff;color:#fff}
+  </style>
+  <div id="cb" role="dialog" aria-label="Cookie notice">
+    <p>This website uses strictly necessary cookies to keep the site secure and the contact form working. No tracking or advertising cookies are used. <a href="cookie-policy.html">Cookie Policy</a> &middot; <a href="privacy-policy.html">Privacy Policy</a></p>
+    <div class="cb-btns">
+      <button id="cb-decline">Decline non-essential</button>
+      <button id="cb-accept">Accept</button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var b=document.getElementById("cb"),K="iddev_consent";
+      if(!localStorage.getItem(K)){setTimeout(function(){b.classList.add("cb-show")},900)}
+      document.getElementById("cb-accept").onclick=function(){localStorage.setItem(K,"accepted");hide()}
+      document.getElementById("cb-decline").onclick=function(){localStorage.setItem(K,"declined");hide()}
+      function hide(){b.style.transform="translateY(100%)";setTimeout(function(){b.style.display="none"},420)}
+    })();
+  </script>
+  <!-- ===== END COOKIE BANNER ===== -->
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
