@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning STEM in Education — Erasmus+ Training | ID Development Academy</title>
+  <meta name="description" content="Erasmus+ training programme — Learning STEM in Education. Hands-on experience with robotics, 3D printing, coding and science labs at ID Development Academy." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Learning STEM in Education — Erasmus+ Training | ID Development Academy" />
+  <meta property="og:description" content="Immersive Erasmus+ STEM training programme — robotics, 3D printing, coding and science laboratory practice at ID Development Academy." />
+  <meta property="og:image" content="https://id-development.netlify.app/assets/images/stem-2026/stem-classroom-overview.jpg" />
+  <meta property="og:url" content="https://id-development.netlify.app/activity-stem-education-2026.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── Hero ── */
+    .ev-hero { padding: 72px 0 56px; }
+    .ev-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.88rem; font-weight: 600; text-decoration: none; margin-bottom: 28px; transition: color .2s; }
+    .ev-back:hover { color: var(--text); }
+    .ev-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .ev-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; letter-spacing: .03em; }
+    .ev-badge-erasmus { background: rgba(45,140,255,.15); color: #93c5fd; border: 1px solid rgba(45,140,255,.25); }
+    .ev-badge-course  { background: rgba(109,227,194,.13); color: #6de3c2; border: 1px solid rgba(109,227,194,.22); }
+    .ev-badge-stem    { background: rgba(251,146,60,.13); color: #fb923c; border: 1px solid rgba(251,146,60,.25); }
+    .ev-badge-year    { background: rgba(248,180,0,.12); color: #fbbf24; border: 1px solid rgba(248,180,0,.22); }
+    .ev-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.2; margin: 0 0 18px; }
+    .ev-intro { font-size: 1.1rem; color: var(--muted); line-height: 1.75; max-width: 720px; margin: 0; }
+
+    /* ── Meta strip ── */
+    .ev-meta-strip { display: flex; flex-wrap: wrap; gap: 28px; padding: 28px 32px; background: linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.05)); border: 1px solid rgba(255,255,255,.10); border-radius: var(--radius); margin: 40px 0 56px; }
+    .ev-meta-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); }
+    .ev-meta-item svg { flex-shrink: 0; opacity: .7; }
+    .ev-meta-item strong { color: var(--text); font-weight: 600; }
+
+    /* ── Gallery — featured hero image + grid ── */
+    .ev-gallery-hero { width: 100%; height: 460px; object-fit: cover; border-radius: var(--radius); display: block; margin-bottom: 16px; cursor: pointer; transition: opacity .2s; }
+    .ev-gallery-hero:hover { opacity: .92; }
+    .ev-gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 64px; }
+    .ev-gallery-item { position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; background: rgba(255,255,255,.04); }
+    .ev-gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform .35s; }
+    .ev-gallery-item:hover img { transform: scale(1.05); }
+    .ev-gallery-cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 14px 14px; background: linear-gradient(0deg,rgba(0,0,0,.72),transparent); color: #fff; font-size: 0.8rem; font-weight: 500; opacity: 0; transition: opacity .25s; }
+    .ev-gallery-item:hover .ev-gallery-cap { opacity: 1; }
+
+    /* ── Body ── */
+    .ev-body { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+    .ev-content h2 { font-size: 1.45rem; margin: 0 0 16px; }
+    .ev-content p { color: var(--muted); line-height: 1.78; margin: 0 0 18px; font-size: 0.97rem; }
+
+    /* ── STEM pillars ── */
+    .stem-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+    .stem-pillar { background: linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04)); border: 1px solid rgba(255,255,255,.10); border-radius: 12px; padding: 20px; }
+    .stem-pillar-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .stem-pillar h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 8px; color: var(--text); }
+    .stem-pillar p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    /* ── Benefits ── */
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 28px 0 36px; }
+    .benefit-card { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04)); border: 1px solid rgba(255,255,255,.09); border-radius: 12px; }
+    .benefit-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .benefit-card h4 { font-size: 0.9rem; font-weight: 700; margin: 0 0 5px; color: var(--text); }
+    .benefit-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+    /* ── Quote ── */
+    .ev-quote { border-left: 3px solid rgba(251,146,60,.5); padding: 16px 0 16px 24px; margin: 36px 0; }
+    .ev-quote p { font-size: 1.05rem; font-style: italic; color: var(--text); line-height: 1.7; margin: 0 0 8px; }
+    .ev-quote cite { font-size: 0.84rem; color: var(--muted); font-style: normal; }
+
+    /* ── Highlight box ── */
+    .ev-highlight { display: flex; align-items: flex-start; gap: 16px; padding: 20px 22px; background: rgba(251,146,60,.07); border: 1px solid rgba(251,146,60,.18); border-radius: 12px; margin: 28px 0; }
+    .ev-highlight svg { flex-shrink: 0; color: #fb923c; margin-top: 2px; }
+    .ev-highlight p { margin: 0; font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+    .ev-highlight strong { color: var(--text); }
+
+    /* ── Sidebar ── */
+    .ev-sidebar { display: grid; gap: 20px; }
+    .ev-sidebar-box { background: linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.05)); border: 1px solid rgba(255,255,255,.10); border-radius: var(--radius); padding: 24px; }
+    .ev-sidebar-box h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 16px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .tech-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 0.88rem; color: var(--text); }
+    .tech-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .tech-item span { color: var(--muted); font-size: 0.82rem; }
+    .tech-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── CTA ── */
+    .ev-cta { background: linear-gradient(135deg,rgba(251,146,60,.08),rgba(45,140,255,.06)); border: 1px solid rgba(251,146,60,.18); border-radius: var(--radius); padding: 52px; text-align: center; margin-top: 72px; }
+    .ev-cta h2 { margin: 0 0 12px; font-size: 1.6rem; }
+    .ev-cta p { color: var(--muted); margin: 0 0 28px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; font-size: 0.97rem; }
+
+    /* ── Lightbox ── */
+    .lb-overlay { display: none; position: fixed; inset: 0; z-index: 9990; background: rgba(0,0,0,.9); align-items: center; justify-content: center; padding: 20px; }
+    .lb-overlay.open { display: flex; }
+    .lb-overlay img { max-width: 90vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
+    .lb-close { position: fixed; top: 20px; right: 28px; font-size: 2.2rem; color: #fff; cursor: pointer; background: none; border: none; z-index: 9991; opacity: .8; line-height: 1; }
+    .lb-close:hover { opacity: 1; }
+
+    @media(max-width: 900px) {
+      .ev-body { grid-template-columns: 1fr; }
+      .stem-pillars { grid-template-columns: 1fr 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .ev-gallery-grid { grid-template-columns: 1fr 1fr; }
+      .ev-gallery-hero { height: 300px; }
+      .ev-meta-strip { gap: 16px; padding: 20px; }
+    }
+    @media(max-width: 600px) {
+      .stem-pillars { grid-template-columns: 1fr; }
+      .ev-gallery-grid { grid-template-columns: 1fr; }
+      .ev-gallery-hero { height: 230px; }
+      .ev-cta { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo.png" alt="ID Development Academy" class="brand-logo">
+        <span class="brand-text">ID Development Academy</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="vet-mobility.html">VET Mobility</a>
+        <a class="active" href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero ev-hero">
+      <div class="container reveal">
+        <a href="activities.html" class="ev-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Activities
+        </a>
+        <div class="ev-badges">
+          <span class="ev-badge ev-badge-erasmus">Erasmus+</span>
+          <span class="ev-badge ev-badge-stem">STEM</span>
+          <span class="ev-badge ev-badge-course">Training Course</span>
+          <span class="ev-badge ev-badge-year">2026</span>
+        </div>
+        <h1>Learning STEM in Education</h1>
+        <p class="ev-intro">A fully immersive Erasmus+ training programme at ID Development Academy — giving educators direct hands-on experience with robotics, 3D printing, coding and science laboratory work in a purpose-built modern STEM environment.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <!-- Meta strip -->
+        <div class="ev-meta-strip reveal">
+          <div class="ev-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Date: <strong>2026</strong></span>
+          </div>
+          <div class="ev-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Venue: <strong>ID Development Academy</strong></span>
+          </div>
+          <div class="ev-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>Programme: <strong>Erasmus+ KA1</strong></span>
+          </div>
+          <div class="ev-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            <span>Focus: <strong>Robotics · 3D Printing · Science Lab</strong></span>
+          </div>
+          <div class="ev-meta-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Host country: <strong>🇧🇬 Bulgaria</strong></span>
+          </div>
+        </div>
+
+        <!-- Hero photo -->
+        <img
+          src="assets/images/stem-2026/stem-classroom-overview.jpg"
+          alt="Modern STEM classroom at ID Development Academy — robotics, coding and interactive learning"
+          class="ev-gallery-hero reveal"
+          onerror="this.style.display='none'"
+          onclick="openLb(this.src, this.alt)"
+        />
+
+        <!-- Photo grid -->
+        <div class="ev-gallery-grid reveal">
+          <div class="ev-gallery-item" onclick="openLb(this.querySelector('img').src, this.querySelector('img').alt)">
+            <img src="assets/images/stem-2026/stem-3d-printer.jpg"
+                 onerror="this.closest('.ev-gallery-item').style.background='rgba(251,146,60,.07)';this.style.display='none'"
+                 alt="Student working with Creality 3D printer" />
+            <div class="ev-gallery-cap">3D printing in action</div>
+          </div>
+          <div class="ev-gallery-item" onclick="openLb(this.querySelector('img').src, this.querySelector('img').alt)">
+            <img src="assets/images/stem-2026/stem-room-setup.jpg"
+                 onerror="this.closest('.ev-gallery-item').style.background='rgba(251,146,60,.07)';this.style.display='none'"
+                 alt="STEM room with robotics kits and interactive display" />
+            <div class="ev-gallery-cap">STEM lab — robotics & coding area</div>
+          </div>
+          <div class="ev-gallery-item" onclick="openLb(this.querySelector('img').src, this.querySelector('img').alt)">
+            <img src="assets/images/stem-2026/stem-science-lab.jpg"
+                 onerror="this.closest('.ev-gallery-item').style.background='rgba(251,146,60,.07)';this.style.display='none'"
+                 alt="Science laboratory — biology experiment in progress" />
+            <div class="ev-gallery-cap">Science laboratory — hands-on experiments</div>
+          </div>
+        </div>
+
+        <!-- Body + Sidebar -->
+        <div class="ev-body">
+          <div class="ev-content reveal">
+
+            <h2>About the Training</h2>
+            <p>ID Development Academy hosted an Erasmus+ training programme centred on one of the most urgent priorities in modern education: <strong>bringing STEM meaningfully into the classroom</strong>. The course — <em>Learning STEM in Education</em> — gave participants direct, practical exposure to the tools, spaces and methods that define excellent STEM teaching today.</p>
+            <p>Rather than focusing on theory, the programme was designed around doing. Participants worked inside a fully equipped, purpose-built STEM facility — moving between a technology lab with robotics, 3D printing and coding stations, and a dedicated science laboratory — experiencing firsthand how these environments transform learning for students.</p>
+
+            <div class="ev-highlight">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <p><strong>Learning by doing:</strong> Every session placed participants in the role of the student — working with real equipment, completing real tasks, and reflecting on how each activity translates into powerful learning experiences for young people in their own schools.</p>
+            </div>
+
+            <!-- STEM Pillars -->
+            <h2 style="margin-top:44px;">The Four Pillars of the Programme</h2>
+            <div class="stem-pillars">
+              <div class="stem-pillar">
+                <div class="stem-pillar-icon">🤖</div>
+                <h3>Robotics & Coding</h3>
+                <p>Participants programmed educational robots, designed autonomous navigation tasks and explored how coding develops logical thinking, teamwork and problem-solving in students of all ages.</p>
+              </div>
+              <div class="stem-pillar">
+                <div class="stem-pillar-icon">🖨️</div>
+                <h3>3D Printing & Design</h3>
+                <p>Hands-on work with 3D printers introduced educators to digital design workflows and the powerful creative and engineering possibilities that additive manufacturing brings to education.</p>
+              </div>
+              <div class="stem-pillar">
+                <div class="stem-pillar-icon">🔬</div>
+                <h3>Science Laboratory</h3>
+                <p>A dedicated science lab equipped with professional tools allowed participants to conduct biology and chemistry experiments — rediscovering inquiry-based learning through the lens of a practitioner.</p>
+              </div>
+              <div class="stem-pillar">
+                <div class="stem-pillar-icon">💡</div>
+                <h3>STEM Pedagogy</h3>
+                <p>Beyond the equipment, the programme explored how to design STEM lessons, integrate cross-curricular thinking and build a school culture where curiosity, experimentation and creativity thrive.</p>
+              </div>
+            </div>
+
+            <!-- Benefits -->
+            <h2 style="margin-top:44px;">Benefits for Educators & Schools</h2>
+            <p>Investing in STEM professional development has a direct, measurable impact — both on individual teachers and on the schools they return to. Here is what participants gained from this programme:</p>
+
+            <div class="benefits-grid">
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(251,146,60,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <h4>Confidence with Technology</h4>
+                  <p>Hands-on experience removes fear of new tools — teachers leave ready to introduce robotics, 3D printing and coding in their own classrooms.</p>
+                </div>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(45,140,255,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                  <h4>Higher Student Engagement</h4>
+                  <p>STEM activities dramatically increase student motivation. Teachers trained in active STEM methods report stronger participation and curiosity in the classroom.</p>
+                </div>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(109,227,194,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6de3c2" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <div>
+                  <h4>Future-Ready Teaching Skills</h4>
+                  <p>Educators gain the practical skills to prepare students for a world shaped by technology, critical thinking and cross-disciplinary problem-solving.</p>
+                </div>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(168,85,247,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                  <h4>Erasmus+ Professional Development</h4>
+                  <p>Participation counts toward Erasmus+ KA1 accreditation goals, supporting schools' long-term European cooperation and internationalisation strategies.</p>
+                </div>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(251,146,60,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <h4>Ready-to-Use Resources</h4>
+                  <p>Participants leave with concrete lesson ideas, activity frameworks and digital resources they can implement immediately upon returning to school.</p>
+                </div>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon" style="background:rgba(45,140,255,.15);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div>
+                  <h4>European Network & Collaboration</h4>
+                  <p>Training alongside educators from across Europe builds lasting professional connections and opens doors to future collaborative projects and partnerships.</p>
+                </div>
+              </div>
+            </div>
+
+            <blockquote class="ev-quote">
+              <p>"I came in as a traditional classroom teacher. I left thinking completely differently about what a lesson can look like. Seeing students with robots and 3D printers — you understand immediately why this matters."</p>
+              <cite>— Programme participant</cite>
+            </blockquote>
+
+            <h2 style="margin-top:44px;">The STEM Environment at ID Development</h2>
+            <p>The training took place in ID Development Academy's dedicated STEM facility — a modern, purpose-designed space equipped with the full range of tools needed for 21st-century education. The room features an interactive display system, dedicated robotics workstations, AI-enabled learning robots, multiple 3D printers and a fully equipped science laboratory for biology and chemistry experiments.</p>
+            <p>The design of the space itself is part of the learning experience: open, flexible, visually stimulating and built around collaboration. Participants not only used the equipment — they reflected on how the physical learning environment shapes students' attitudes to exploration, risk-taking and creativity.</p>
+
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="ev-sidebar reveal">
+
+            <div class="ev-sidebar-box">
+              <h3>Technologies Used</h3>
+              <div>
+                <div class="tech-item">
+                  <div class="tech-dot" style="background:#fb923c;"></div>
+                  <div>
+                    <div style="font-weight:600">Educational Robots</div>
+                    <span>Programmable AI robots for coding tasks</span>
+                  </div>
+                </div>
+                <div class="tech-item">
+                  <div class="tech-dot" style="background:#93c5fd;"></div>
+                  <div>
+                    <div style="font-weight:600">3D Printers</div>
+                    <span>Creality FDM printers — design & print</span>
+                  </div>
+                </div>
+                <div class="tech-item">
+                  <div class="tech-dot" style="background:#6de3c2;"></div>
+                  <div>
+                    <div style="font-weight:600">Robotics Kits</div>
+                    <span>Track-based navigation challenges</span>
+                  </div>
+                </div>
+                <div class="tech-item">
+                  <div class="tech-dot" style="background:#c084fc;"></div>
+                  <div>
+                    <div style="font-weight:600">Science Lab</div>
+                    <span>Biology & chemistry experiments</span>
+                  </div>
+                </div>
+                <div class="tech-item">
+                  <div class="tech-dot" style="background:#fbbf24;"></div>
+                  <div>
+                    <div style="font-weight:600">Interactive Display</div>
+                    <span>Smart screen for collaborative lessons</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-sidebar-box">
+              <h3>Quick Facts</h3>
+              <div style="display:grid;gap:12px">
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px">
+                  <span style="color:var(--muted)">Programme</span>
+                  <strong>Erasmus+ KA1</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px">
+                  <span style="color:var(--muted)">Host</span>
+                  <strong>ID Development Academy</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px">
+                  <span style="color:var(--muted)">Host country</span>
+                  <strong>🇧🇬 Bulgaria</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px">
+                  <span style="color:var(--muted)">Focus areas</span>
+                  <strong>STEM · Coding · Lab</strong>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.88rem">
+                  <span style="color:var(--muted)">Language</span>
+                  <strong>English</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-sidebar-box">
+              <h3>Ideal For</h3>
+              <div style="display:grid;gap:9px">
+                <div style="display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;color:var(--muted);line-height:1.5">
+                  <span style="color:#fb923c;flex-shrink:0;font-size:0.72rem;margin-top:4px">✦</span>
+                  Science & technology teachers
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;color:var(--muted);line-height:1.5">
+                  <span style="color:#fb923c;flex-shrink:0;font-size:0.72rem;margin-top:4px">✦</span>
+                  Maths & IT educators
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;color:var(--muted);line-height:1.5">
+                  <span style="color:#fb923c;flex-shrink:0;font-size:0.72rem;margin-top:4px">✦</span>
+                  School directors planning STEM labs
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;color:var(--muted);line-height:1.5">
+                  <span style="color:#fb923c;flex-shrink:0;font-size:0.72rem;margin-top:4px">✦</span>
+                  Primary & secondary school staff
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:9px;font-size:0.87rem;color:var(--muted);line-height:1.5">
+                  <span style="color:#fb923c;flex-shrink:0;font-size:0.72rem;margin-top:4px">✦</span>
+                  Erasmus+ coordinators
+                </div>
+              </div>
+            </div>
+
+            <div class="ev-sidebar-box">
+              <h3>Bring Your Group</h3>
+              <p style="font-size:0.88rem;color:var(--muted);line-height:1.6;margin:0 0 14px">Ready to experience STEM education at first hand? We design this programme for groups of school staff and tailor it to your school's priorities.</p>
+              <a href="contact.html" class="btn btn-primary" style="width:100%;text-align:center;display:block;font-size:0.88rem">Request Information</a>
+              <a href="courses.html" class="btn btn-secondary" style="width:100%;text-align:center;display:block;font-size:0.88rem;margin-top:10px">View All Courses</a>
+            </div>
+
+          </aside>
+        </div>
+
+        <!-- CTA -->
+        <div class="ev-cta reveal">
+          <span class="eyebrow">Experience STEM learning</span>
+          <h2>Bring your school to our STEM facility</h2>
+          <p>Our purpose-built STEM environment is available for Erasmus+ training groups, school visits and professional development programmes. Contact us to plan your group's experience.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-primary" href="contact.html">Get in Touch</a>
+            <a class="btn btn-secondary" href="activities.html">View All Activities</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/images/logo.png" alt="ID Development Academy" class="footer-logo-img" />
+        <h3>ID Development Academy</h3>
+        <p>International training, mobility and Erasmus+ learning opportunities.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="activities.html">Activities</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:id.development@yahoo.com">id.development@yahoo.com</a>
+        <a href="tel:+359894416627">+359 894 416 627</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/359894416627" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+     style="position:fixed;bottom:24px;right:24px;z-index:8888;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.22);transition:transform .2s"
+     onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.675 4.8 1.852 6.793L2 30l7.42-1.82A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.46 11.46 0 01-5.84-1.6l-.42-.25-4.4 1.08 1.12-4.28-.27-.44A11.5 11.5 0 1116 27.5zm6.3-8.6c-.35-.17-2.06-1.01-2.38-1.13-.32-.11-.55-.17-.78.17-.23.34-.89 1.13-1.09 1.36-.2.23-.4.26-.74.09-.35-.18-1.46-.54-2.78-1.72-1.03-.92-1.72-2.05-1.92-2.4-.2-.34-.02-.53.15-.7.15-.15.35-.4.52-.6.17-.2.23-.34.34-.57.12-.23.06-.43-.02-.6-.09-.17-.78-1.88-1.07-2.57-.28-.68-.57-.59-.78-.6h-.67c-.23 0-.6.09-.91.43-.32.34-1.2 1.17-1.2 2.86s1.23 3.31 1.4 3.54c.17.23 2.42 3.69 5.87 5.17.82.35 1.46.56 1.96.72.82.26 1.57.22 2.16.13.66-.1 2.06-.84 2.35-1.65.29-.81.29-1.51.2-1.65-.08-.15-.3-.23-.65-.4z"/>
+    </svg>
+  </a>
+
+  <!-- Cookie banner -->
+  <style>
+    #cb{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#06111f;border-top:1px solid rgba(255,255,255,0.10);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;font-family:"Inter",sans-serif;font-size:0.84rem;line-height:1.55;transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+    #cb.cb-show{transform:translateY(0)}
+    #cb p{margin:0;color:#b8c3d9;flex:1;min-width:200px}
+    #cb a{color:#6de3c2;text-decoration:underline}
+    #cb .cb-btns{display:flex;gap:.6rem;flex-shrink:0;flex-wrap:wrap}
+    #cb button{cursor:pointer;border-radius:999px;padding:.45rem 1.15rem;font-family:"Inter",sans-serif;font-size:.82rem;font-weight:600;transition:opacity .2s;border:1.5px solid rgba(109,227,194,.55);background:transparent;color:#e2e8f0}
+    #cb button:hover{opacity:.8}
+    #cb-accept{background:linear-gradient(135deg,#2d8cff,#56a7ff);border-color:#2d8cff;color:#fff}
+  </style>
+  <div id="cb" role="dialog" aria-label="Cookie notice">
+    <p>This website uses strictly necessary cookies. <a href="cookie-policy.html">Cookie Policy</a> &middot; <a href="privacy-policy.html">Privacy Policy</a></p>
+    <div class="cb-btns">
+      <button id="cb-decline">Decline non-essential</button>
+      <button id="cb-accept">Accept</button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lb" onclick="closeLb()">
+    <button class="lb-close" onclick="closeLb()" aria-label="Close">×</button>
+    <img id="lb-img" src="" alt="" onclick="event.stopPropagation()" />
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      var b=document.getElementById("cb"),K="iddev_consent";
+      if(!localStorage.getItem(K)){setTimeout(function(){b.classList.add("cb-show")},900)}
+      document.getElementById("cb-accept").onclick=function(){localStorage.setItem(K,"accepted");hide()}
+      document.getElementById("cb-decline").onclick=function(){localStorage.setItem(K,"declined");hide()}
+      function hide(){b.style.transform="translateY(100%)";setTimeout(function(){b.style.display="none"},420)}
+    })();
+    function openLb(src, alt) {
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lb-img').alt = alt || '';
+      document.getElementById('lb').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      document.getElementById('lb').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+  </script>
+</body>
+</html>
